@@ -8,6 +8,6 @@ RPcompare <- function(x) {
     to_minutes <- 10
     hourly_timestamp <- round.POSIXt(timestamp, "hours")
     rounded_timestamp <- hourly_timestamp -
-        round(as.numeric(timestamp - hourly_timestamp) / to_minutes) * 10 * 60
+        round(as.numeric(hourly_timestamp - timestamp) / to_minutes) * (to_minutes * 60)
     xts(coredata(x), rounded_timestamp) 
 }
